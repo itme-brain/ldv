@@ -11,7 +11,6 @@
       mkShell {
         buildInputs = [
           nodejs
-          yarn
         ];
       };
   };
