@@ -11,6 +11,7 @@
       mkShell {
         buildInputs = [
           nodejs
+          python3
         ];
       };
   };
