@@ -1,19 +1,18 @@
 {
-  description = "Web Development Flake";
+  description = "A simple NodeJS web development environment";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
 
-  outputs = { self, nixpkgs }: {
-    
-    devShell.x86_64-linux = with nixpkgs.legacyPackages.x86_64-linux; 
-      mkShell {
-        buildInputs = [
+  outputs = { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in
+    {
+      devShell.${system} = pkgs.mkShell {
+        buildInputs = with pkgs; [
           nodejs
-          elixir_1_14
         ];
       };
-  };
+    };
 }
-
