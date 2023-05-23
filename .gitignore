@@ -1,2 +1,4 @@
 webDev/node_modules
 webDev/yarn.lock
+webDev/package.lock
+*/flake.lock
