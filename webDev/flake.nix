@@ -1,36 +1,19 @@
 {
-  description = "A development environment for Elixir and Phoenix";
+  description = "Web Development Flake";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
+  };
 
-  outputs = { self, nixpkgs }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-      elixir = pkgs.elixir_1_14;
-      nodejs = pkgs.nodejs-19_x;
-    in
-    {
-      devShell.${system} = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          elixir
+  outputs = { self, nixpkgs }: {
+    
+    devShell.x86_64-linux = with nixpkgs.legacyPackages.x86_64-linux; 
+      mkShell {
+        buildInputs = [
           nodejs
-          postgresql_12
+          elixir_1_14
         ];
-  
-        shellHook = ''
-          if ! mix local.hex --help > /dev/null 2>&1; then
-            mix local.hex
-          fi
-
-          if ! mix local.rebar --help > /dev/null 2>&1; then
-            mix local.rebar
-          fi
-
-          if ! mix archive | grep phx_new > /dev/null 2>&1; then
-            mix archive.install hex phx_new
-          fi
-        '';
       };
-    };
+  };
 }
+
