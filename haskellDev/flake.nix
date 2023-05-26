@@ -1,18 +1,20 @@
 {
-  description = "Haskell Development Flake";
+  description = "A development environment for Haskell";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }: {
-    
-    devShell.x86_64-linux = with nixpkgs.legacyPackages.x86_64-linux; 
-      mkShell {
-        buildInputs = [
+  outputs = { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in
+    {
+      devShell.${system} = pkgs.mkShell {
+        buildInputs = with pkgs; [
           ghc
           cabal-install
+          cabal2nix
         ];
-      };
+    };
   };
 }
