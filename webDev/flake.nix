@@ -14,6 +14,7 @@
           nodejs
           purescript
           spago
+          nodePackages.vue-cli
         ];
       };
     };
