@@ -2,6 +2,8 @@
 
 Simple and reusable nix flakes to setup developer environments declaratively and reproducibly
 
+Mainly geared towards purely functional languages that I like to use.
+
 Here is a simple bash script to add a `dev` command to enter these environments from anywhere
 
 
