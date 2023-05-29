@@ -16,6 +16,7 @@
           cabal-install
           cabal2nix
           haskellPackages.hoogle
+          haskellPackages.doctest
         ];
     };
   };
