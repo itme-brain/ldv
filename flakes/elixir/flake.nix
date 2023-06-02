@@ -1,23 +1,21 @@
 {
   description = "A development environment for Elixir and Phoenix";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.flake-utils.url = "github:numtide/flake-utils";
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, flake-utils }:
+  flake-utils.lib.eachDefaultSystem (system:
     let
-      system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      elixir = pkgs.elixir_1_14;
-      nodejs = pkgs.nodejs-19_x;
     in
     {
-      devShell.${system} = pkgs.mkShell {
-        buildInputs = with pkgs; [
+      devShells.default = pkgs.mkShell {
+        buildNativeInputs = with pkgs; [
           elixir
-          nodejs
-          postgresql_12
+          nodejs_20
+          postgresql
         ];
-  
         shellHook = ''
           if ! mix local.hex --help > /dev/null 2>&1; then
             mix local.hex
@@ -32,5 +30,5 @@
           fi
         '';
       };
-    };
+    });
 }

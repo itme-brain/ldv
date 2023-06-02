@@ -1,41 +1,44 @@
-# Developer Flakes
+# Lazy dev
+**Disclaimer: This is a hobby project in its early stages.**
 
-Simple and reusable nix flakes to setup developer environments declaratively and reproducibly
+`ldv` is a simple utility for creating preconfigured developer environments powered by Nix. It automates the setup of development environments for various programming languages and frameworks.
 
-Mainly geared towards purely functional languages that I like to use.
+> Note: This project is actively under development, and we plan to add support for more languages, frameworks, and options in the future.
 
-It is recommended to have an IDE already set up with your preferred editing tools for each environment.
+## Requirements
 
-Here is a simple bash script you can add to your `.bashrc` to add a `dev` command to enter these environments from anywhere. 
+This tool relies on the following software:
+
+- [Nix](https://nixos.org/download.html)
+- [nix-direnv](https://github.com/nix-community/nix-direnv)
+
+Please ensure these are installed on your system before proceeding with the installation.
+
+## Installation
+
+### Via Makefile
+
+We've included a `Makefile` with this project, which you can use to install `ldv` by running the following command in your terminal:
 
 ```bash
-# Developer Environment Function
-function dev() {
-  echo "Select an environment:"
-  echo "1. Web"
-  echo "2. Elixir"
-  echo "3. Haskell"
-  # Add more options here...
-
-  read -p "Enter the number of your choice: " choice
-
-  case $choice in
-    1)
-      (cd ~/Documents/developerEnvs/webDev && nix develop)
-      echo "Don't forget to cd into your projects directory. Have a great day!"
-      ;;
-    2)
-      (cd ~/Documents/developerEnvs/elixirDev && nix develop)
-      echo "Don't forget to cd into your projects directory. Have a great day!"
-      ;;
-    3)
-      (cd ~/Documents/developerEnvs/haskellDev && nix develop)
-      echo "Don't forget to cd into your projects directory. Have a great day!"
-      ;;
-    # Add more cases here...
-    *)
-      echo "Invalid choice"
-      ;;
-  esac
-}
+sudo make install
 ```
+This will copy the `ldv` script to `/usr/local/bin` which ideally is in your `$PATH`.
+
+### Manual Installation
+
+Alternatively, you can install `ldv` manually by copying it to a location in your `$PATH` or by copy the contents of the `ldv` script to your `.bashrc` and wrapping it in a `funtion(){}`
+
+### Usage
+
+To start a new environment, simply enter the following command in your terminal:
+
+`ldv`
+
+To initialize a new dev template in the current directory, use the `init` option:
+
+`ldv init`
+
+### Contributing
+
+We welcome and appreciate contributions to the project! Whether you have feature requests, bug reports, or code changes

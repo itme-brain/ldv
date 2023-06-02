@@ -1,0 +1,57 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
+
+if [[ $1 == "--init" ]]; then
+  echo "Initializing a new environment..."
+  echo "Select an environment:"
+  echo "1. Web"
+  echo "2. Elixir"
+  echo "3. Haskell"
+  # Add more options here...
+
+  read -p "Enter the number of your choice: " choice
+
+  case $choice in
+    1)
+      cp "$SCRIPT_DIR/flakes/web/flake.nix" .  #update these to wget
+      echo "use flake" >> .envrc && direnv allow
+      ;;
+    2)
+      cp "$SCRIPT_DIR/flakes/elixir/flake.nix" .
+      echo "use flake" >> .envrc && direnv allow
+      ;;
+    3)
+      cp "$SCRIPT_DIR/flakes/haskell/flake.nix" .
+      echo "use flake" >> .envrc && direnv allow
+      ;;
+    # Add more cases here...
+    *)
+      echo "Invalid choice"
+      ;;
+  esac
+else
+  echo "Select an environment:"
+  echo "1. Web"
+  echo "2. Elixir"
+  echo "3. Haskell"
+  # Add more options here...
+
+  read -p "Enter the number of your choice: " choice
+
+  case $choice in
+    1)
+      (nix develop "$SCRIPT_DIR#web")
+      ;;
+    2)
+      (nix develop "$SCRIPT_DIR#elixir")
+      ;;
+    3)
+      (nix develop "$SCRIPT_DIR#haskell")
+      ;;
+    # Add more cases here...
+    *)
+      echo "Invalid choice"
+      ;;
+  esac
+fi
