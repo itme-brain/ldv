@@ -9,7 +9,7 @@
 
 This tool relies on the following software:
 
-- [Nix](https://nixos.org/download.html)
+- [Nix](https://nixos.org/download.html) > *flakes and nix commands enabled*
 - [nix-direnv](https://github.com/nix-community/nix-direnv)
 
 Please ensure these are installed on your system before proceeding with the installation.

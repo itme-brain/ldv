@@ -14,14 +14,16 @@ if [[ $1 == "--init" ]]; then
 
   case $choice in
     1)
-      cp "$SCRIPT_DIR/flakes/web/flake.nix" .  #update these to wget
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/flakes/web/flake.nix
       echo "use flake" >> .envrc && direnv allow
       ;;
     2)
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/flakes/elixir/flake.nix
       cp "$SCRIPT_DIR/flakes/elixir/flake.nix" .
       echo "use flake" >> .envrc && direnv allow
       ;;
     3)
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/flakes/haskell/flake.nix
       cp "$SCRIPT_DIR/flakes/haskell/flake.nix" .
       echo "use flake" >> .envrc && direnv allow
       ;;
