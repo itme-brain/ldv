@@ -1,4 +1,4 @@
-# Lazy dev
+# ldv
 **Disclaimer: This is a hobby devops project and mainly just a repo of setups I like to use.**
 
 `ldv` is a bash script utility for creating preconfigured developer environments powered by Nix. 
@@ -17,22 +17,14 @@ Please ensure `nix` is installed on your system before proceeding with the insta
 
 ## Installation
 
-### Via Makefile
-
-Included is a simple `Makefile` with this project, which you can use to install `ldv` by running the following command in your terminal:
-
-```bash
-sudo make install
-```
-This will copy the `ldv` script to `/usr/local/bin` which ideally is in your `$PATH`.
 
 ### Manual Installation
 
-Alternatively, you can install `ldv` manually by copying it to a location in your `$PATH` or by copy the contents of the `ldv` script to your `.bashrc` and wrapping it in a `funtion(){}`
+Alternatively, you can install `ldv` manually by copying it to a location in your `$PATH` or by sourcing it in your `.bashrc`
 
 ### Usage
 
-To start a new environment, enter the following command in your terminal:
+To start a new environment with some sensible defaults, enter the following command in your terminal:
 
 `ldv`
 
@@ -40,7 +32,7 @@ To initialize a new dev template in the current directory, use the `init` option
 
 `ldv init`
 
-Dev templates are simply a `flake.nix` + `.envrc` that enables you to enter an isolated and reproducible build environment whenever you enter your projects directory.
+Dev templates are simply a `flake.nix` + `.envrc` that enables you to automagically enter an isolated and reproducible build environment whenever you enter your projects directory.
 
 ### Contributing
 
