@@ -46,4 +46,4 @@ Dev templates are a `flake.nix` + `.envrc` that enables you to automagically ent
 
 ### Contributing
 
-Contributions and feedback are appreciated! Whether you have feature requests, bug reports, or code changes
+Contributions and feedback are welcome and appreciated!
