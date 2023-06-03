@@ -9,7 +9,7 @@ if ! command -v nix >/dev/null 2>&1; then
   echo
   if [[ $REPLY =~ ^[Y|y|Yes|yes]$ ]]; then
     # Install Nix using the official install instructions. https://nixos.org/download.html
-    curl sh <(curl -L https://nixos.org/nix/install) --daemon
+    sh <(curl -L https://nixos.org/nix/install) --daemon
   else
     echo "Nix installation skipped. Exiting."
     exit 1
