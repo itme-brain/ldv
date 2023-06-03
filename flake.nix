@@ -1,5 +1,6 @@
 {
-  description = "A flake with multiple development shell outputs";
+  description = "devShell outputs for `ldv` 
+  and maybe additional tools in the future";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";

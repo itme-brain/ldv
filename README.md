@@ -25,7 +25,7 @@ sh <(curl -sSL https://raw.githubusercontent.com/itme-brain/ldv/main/utils/insta
 If you currently do not have nix installed, you will be prompted to install it
 via the official installation method - https://nixos.org/download.html
 
-### Manual Installation
+### Manual Installation / NixOS install
 
 Alternatively, you can install `ldv` manually by copying `ldv.sh` to a location in your `$PATH` or by sourcing it in your `.bashrc`
 
