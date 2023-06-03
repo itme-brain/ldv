@@ -15,7 +15,7 @@
           ghc
           cabal-install
           cabal2nix
-          stack
+          haskellPackages.hslint
           haskellPackages.hoogle
           haskellPackages.doctest
         ];

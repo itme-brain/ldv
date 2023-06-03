@@ -4,7 +4,7 @@ with pkgs;
 mkShell {
   nativeBuildInputs = [
     elixir
-    nodejs_20
+    nodejs
     postgresql
   ];
 
