@@ -5,7 +5,7 @@
 
 It automates the setup of development environments for various programming languages and frameworks.
 
-> Note: This project is actively under development, and we plan to add support for more languages, frameworks, and options in the future.
+> Note: This is actively under development, and I plan to add support for more languages, frameworks, and options in the future.
 
 ## Requirements
 
@@ -33,7 +33,7 @@ Alternatively, you can install `ldv` manually by copying it to a location in you
 
 ### Usage
 
-To start a new environment, simply enter the following command in your terminal:
+To start a new environment, enter the following command in your terminal:
 
 `ldv`
 
@@ -45,4 +45,4 @@ Dev templates are simply a `flake.nix` + `.envrc` that enables you to enter an i
 
 ### Contributing
 
-We welcome and appreciate contributions to the project! Whether you have feature requests, bug reports, or code changes
+Contributions and feedback are appreciated! Whether you have feature requests, bug reports, or code changes
