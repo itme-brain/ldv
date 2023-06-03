@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -e
+
+# Check if Nix is installed
+if ! command -v nix >/dev/null 2>&1; then
+  echo "nix is not installed on your system."
+  read -p "Do you want to install nix? (y/n): " -r
+  echo
+  if [[ $REPLY =~ ^[Y|y|Yes|yes]$ ]]; then
+    # Install Nix using the official install instructions. https://nixos.org/download.html
+    curl sh <(curl -L https://nixos.org/nix/install) --daemon
+  else
+    echo "Nix installation skipped. Exiting."
+    exit 1
+  fi
+fi
+
+# Check if the system is NixOS
+if [ -f /etc/NIXOS ]; then
+  echo "Error: This installation script is not compatible with NixOS."
+  echo "Please refer to the GitHub repository for instructions on installing on NixOS:"
+  echo "https://github.com/itme-brain/ldv"
+  exit 1
+fi
+
+# Install ldv command
+echo "Installing ldv..."
+curl -L https://raw.githubusercontent.com/itme-brain/ldv/main/ldv.sh -o ldv
+chmod +x ldv
+sudo mv ldv /usr/local/bin
+
+echo "Installation completed successfully!"
+echo "You can now use the 'ldv' command."
+echo "Please feel free to provide any contributions or feedback"
+echo "https://github.com/itme-brain/ldv"
+
+exit 0
