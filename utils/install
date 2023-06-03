@@ -1,13 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
 # Check if Nix is installed
 if ! command -v nix >/dev/null 2>&1; then
   echo "Nix is not installed on your system."
-  read -p "Do you want to install Nix? (y/n): " -r
+  printf "Do you want to install Nix? (y/n): "
+  read -r REPLY
   echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if echo "$REPLY" | grep -Eq "^[Yy]$"; then
     # Install Nix using the official install instructions: https://nixos.org/download.html
     sh <(curl -L https://nixos.org/nix/install) --daemon
   else

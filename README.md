@@ -19,7 +19,7 @@ Please ensure `nix` is installed on your system before proceeding with the insta
 ## Installation
 
 ```bash
-curl -sSL https://raw.github.com/itme-brain/ldv/main/utils/install | bash
+sh <(curl -sSL https://raw.githubusercontent.com/itme-brain/ldv/main/utils/install)
 ```
 
 If you currently do not have nix installed, you will be prompted to install it
