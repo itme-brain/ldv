@@ -3,7 +3,7 @@ SCRIPT = ldv
 
 install:
 	@echo "Installing script to $(PREFIX)"
-	@ln -s -f $(realpath $(SCRIPT)) $(PREFIX)/$(SCRIPT)
+	@cp ldv.sh $(PREFIX)/$(SCRIPT)
 	@chmod +x $(PREFIX)/$(SCRIPT)
 	@echo "Script installed successfully."
 

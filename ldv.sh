@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
-
 if [[ $1 == "--init" ]]; then
   echo "Initializing a new environment..."
   echo "Select an environment:"
@@ -43,13 +41,13 @@ else
 
   case $choice in
     1)
-      (nix develop "$SCRIPT_DIR#web")
+      (nix develop github:itme-brain/lazydev#web)
       ;;
     2)
-      (nix develop "$SCRIPT_DIR#elixir")
+      (nix develop github:itme-brain/lazydev#elixir)
       ;;
     3)
-      (nix develop "$SCRIPT_DIR#haskell")
+      (nix develop github:itme-brain/lazydev#haskell)
       ;;
     # Add more cases here...
     *)

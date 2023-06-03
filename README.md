@@ -1,7 +1,9 @@
 # Lazy dev
-**Disclaimer: This is a hobby project in its early stages.**
+**Disclaimer: This is a hobby project in its early stages and mainly just a repo of setups I like to use.**
 
-`ldv` is a simple utility for creating preconfigured developer environments powered by Nix. It automates the setup of development environments for various programming languages and frameworks.
+`ldv` is a bash script utility for creating preconfigured developer environments powered by Nix. 
+
+It automates the setup of development environments for various programming languages and frameworks.
 
 > Note: This project is actively under development, and we plan to add support for more languages, frameworks, and options in the future.
 
@@ -9,7 +11,7 @@
 
 This tool relies on the following software:
 
-- [Nix](https://nixos.org/download.html) > *flakes and nix commands enabled*
+- [Nix](https://nixos.org/download.html) > *flakes and nix-commands enabled*
 - [nix-direnv](https://github.com/nix-community/nix-direnv)
 
 Please ensure these are installed on your system before proceeding with the installation.
@@ -18,7 +20,7 @@ Please ensure these are installed on your system before proceeding with the inst
 
 ### Via Makefile
 
-We've included a `Makefile` with this project, which you can use to install `ldv` by running the following command in your terminal:
+Included is a simple `Makefile` with this project, which you can use to install `ldv` by running the following command in your terminal:
 
 ```bash
 sudo make install
@@ -38,6 +40,8 @@ To start a new environment, simply enter the following command in your terminal:
 To initialize a new dev template in the current directory, use the `init` option:
 
 `ldv init`
+
+Dev templates are simply a `flake.nix` + `.envrc` that enables you to enter an isolated and reproducible build environment whenever you enter your projects directory.
 
 ### Contributing
 

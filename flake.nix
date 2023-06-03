@@ -1,5 +1,5 @@
 {
-  description = "A development environment for Haskell";
+  description = "A flake with multiple development shell outputs";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
