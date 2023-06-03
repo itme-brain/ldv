@@ -33,12 +33,15 @@ Alternatively, you can install `ldv` manually by copying `ldv.sh` to a location 
 
 To start a new environment with some sensible defaults, enter the following command in your terminal:
 
-`ldv`
+```bash
+ldv
+````
 
 To initialize a new dev template in the current directory, use the `init` option:
 
-`ldv init`
-
+```bash
+`ldv init
+````
 Dev templates are a `flake.nix` + `.envrc` that enables you to automagically enter an isolated and reproducible build environment whenever you enter your projects directory.
 
 ### Contributing
