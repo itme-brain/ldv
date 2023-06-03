@@ -1,5 +1,5 @@
 # Lazy dev
-**Disclaimer: This is a hobby project in its early stages and mainly just a repo of setups I like to use.**
+**Disclaimer: This is a hobby project and mainly just a repo of setups I like to use.**
 
 `ldv` is a bash script utility for creating preconfigured developer environments powered by Nix. 
 
