@@ -4,14 +4,14 @@ function ldv() {
 
 if [[ $1 == "help" ]] || [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
   cat << EOF
-lazy dev
+ldv
 A simple utility for setting up development environments effortlessly.
 Commands:
   ldv               Start a preconfigured nix shell.
   init              Create a new dev template in the current working directory.
   help              Show available commands and options.
 
-Contributions welcome: https://github.com/itme-brain/lazydev
+Contributions welcome: https://github.com/itme-brain/ldv
 EOF
 
 elif [[ $1 == "init" ]] || [[ $1 == "-i" ]] || [[ $1 == "--init" ]]; then
@@ -36,19 +36,22 @@ EOF
 
   case $choice in
     1)
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/shells/web.nix -O shell.nix
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/flake -O flake.nix
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/envrc -O .envrc
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/shells/web.nix -O shell.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/flake -O flake.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/envrc -O .envrc
+      dir-env allow
       ;;
     2)
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/shells/elixir.nix -O shell.nix
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/flake -O flake.nix
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/envrc -O .envrc
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/shells/elixir.nix -O shell.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/flake -O flake.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/envrc -O .envrc
+      dir-env allow
       ;;
     3)
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/shells/haskell.nix -O shell.nix
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/flake -O flake.nix
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/envrc -O .envrc
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/shells/haskell.nix -O shell.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/flake -O flake.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/envrc -O .envrc
+      dir-env allow
       ;;
     # Add more cases here...
     *)
@@ -68,13 +71,13 @@ EOF
 
   case $choice in
     1)
-      (nix develop github:itme-brain/lazydev#web)
+      (nix develop github:itme-brain/ldv#web)
       ;;
     2)
-      (nix develop github:itme-brain/lazydev#elixir)
+      (nix develop github:itme-brain/ldv#elixir)
       ;;
     3)
-      (nix develop github:itme-brain/lazydev#haskell)
+      (nix develop github:itme-brain/ldv#haskell)
       ;;
     # Add more cases here...
     *)
