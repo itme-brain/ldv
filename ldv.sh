@@ -39,19 +39,19 @@ EOF
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/shells/web.nix -O shell.nix
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/flake -O flake.nix
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/envrc -O .envrc
-      dir-env allow
+      direnv allow
       ;;
     2)
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/shells/elixir.nix -O shell.nix
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/flake -O flake.nix
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/envrc -O .envrc
-      dir-env allow
+      direnv allow
       ;;
     3)
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/shells/haskell.nix -O shell.nix
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/flake -O flake.nix
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/ex/envrc -O .envrc
-      dir-env allow
+      direnv allow
       ;;
     # Add more cases here...
     *)
