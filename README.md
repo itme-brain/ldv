@@ -12,6 +12,7 @@ It automates the setup of development environments for various programming langu
 This tool relies on:
 
 - [Nix](https://nixos.org/download.html)
+- [direnv](https://direnv.net/docs/installation.html) or [nix-direnv](https://github.com/nix-community/nix-direnv)
 
 Please ensure `nix` is installed on your system before proceeding with the installation.
 
