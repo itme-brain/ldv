@@ -1,5 +1,5 @@
 # Lazy dev
-**Disclaimer: This is a hobby project and mainly just a repo of setups I like to use.**
+**Disclaimer: This is a hobby devops project and mainly just a repo of setups I like to use.**
 
 `ldv` is a bash script utility for creating preconfigured developer environments powered by Nix. 
 
@@ -9,12 +9,11 @@ It automates the setup of development environments for various programming langu
 
 ## Requirements
 
-This tool relies on the following software:
+This tool relies on:
 
-- [Nix](https://nixos.org/download.html) > *flakes and nix-commands enabled*
-- [nix-direnv](https://github.com/nix-community/nix-direnv)
+- [Nix](https://nixos.org/download.html)
 
-Please ensure these are installed on your system before proceeding with the installation.
+Please ensure `nix` is installed on your system before proceeding with the installation.
 
 ## Installation
 

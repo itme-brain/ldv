@@ -1,43 +1,54 @@
 #!/bin/bash
 
+function ldv() {
+
 if [[ $1 == "help" ]] || [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
-  echo "lazy dev"
-  echo "A simple utility for setting up development environments effortlessly."
-  echo "Commands:"
-  echo "  ldv               Start a preconfigured nix shell."
-  echo "  init              Create a new dev template in the current working directory."
-  echo "  help              Show available commands and options."
-  echo ""
-  echo "Contributions welcome: https://github.com/itme-brain/lazydev"
+  cat << EOF
+lazy dev
+A simple utility for setting up development environments effortlessly.
+Commands:
+  ldv               Start a preconfigured nix shell.
+  init              Create a new dev template in the current working directory.
+  help              Show available commands and options.
+
+Contributions welcome: https://github.com/itme-brain/lazydev
+EOF
 
 elif [[ $1 == "init" ]] || [[ $1 == "-i" ]] || [[ $1 == "--init" ]]; then
-  if [[ -e ./flake.nix ]] || [[ -e ./.envrc ]]; then
-    echo "Existing environment found."
-    echo "Initialization cancelled."
+  if [[ -e ./shell.nix ]] || [[ -e ./.envrc ]]; then
+    cat << EOF
+Existing environment found.
+Initialization cancelled.
+EOF
     return
   fi
-
-  echo "Initializing a new environment..."
-  echo "Select an environment:"
-  echo "1. Web"
-  echo "2. Elixir"
-  echo "3. Haskell"
+  
+  cat << EOF
+Initializing a new environment...
+Select an environment:
+1. Web
+2. Elixir
+3. Haskell
+EOF
   # Add more options here...
 
   read -p "Enter the number of your choice: " choice
 
   case $choice in
     1)
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/flakes/web/flake.nix
-      echo "use flake" >> .envrc && direnv allow
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/shells/web.nix -O shell.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/flake -O flake.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/envrc -O .envrc
       ;;
     2)
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/flakes/elixir/flake.nix
-      echo "use flake" >> .envrc && direnv allow
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/shells/elixir.nix -O shell.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/flake -O flake.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/envrc -O .envrc
       ;;
     3)
-      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/flakes/haskell/flake.nix
-      echo "use flake" >> .envrc && direnv allow
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/shells/haskell.nix -O shell.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/flake -O flake.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/lazydev/main/ex/envrc -O .envrc
       ;;
     # Add more cases here...
     *)
@@ -45,23 +56,25 @@ elif [[ $1 == "init" ]] || [[ $1 == "-i" ]] || [[ $1 == "--init" ]]; then
       ;;
   esac
 elif [[ -z $1 ]]; then
-  echo "Select an environment:"
-  echo "1. Web"
-  echo "2. Elixir"
-  echo "3. Haskell"
+  cat << EOF
+Select an environment:
+1. Web
+2. Elixir
+3. Haskell
+EOF
   # Add more options here...
 
   read -p "Enter the number of your choice: " choice
 
   case $choice in
     1)
-      (nix develop ~/Documents/projects/lazydev#web)
+      (nix develop github:itme-brain/lazydev#web)
       ;;
     2)
-      (nix develop ~/Documents/projects/lazydev#elixir)
+      (nix develop github:itme-brain/lazydev#elixir)
       ;;
     3)
-      (nix develop ~/Documents/projects/lazydev#haskell)
+      (nix develop github:itme-brain/lazydev#haskell)
       ;;
     # Add more cases here...
     *)
@@ -70,4 +83,9 @@ elif [[ -z $1 ]]; then
   esac
 else
   echo "Error: Invalid command. Try 'ldv --help'"
+fi
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  ldv "$@"
 fi
