@@ -16,6 +16,7 @@
           devShells.haskell = callPackage ./shells/haskell.nix { };
           devShells.web = callPackage ./shells/web.nix { };
           devShells.elixir = callPackage ./shells/elixir.nix { };
+          devShells.python = callPackage ./shells/python.nix { };
         }
     );
 }
