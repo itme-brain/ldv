@@ -6,7 +6,7 @@
 with pkgs;
 mkShell {
   nativeBuildInputs = [
-    python3full
+    python3Full
     poetry
     python311Packages.flask
     python311Packages.toolz
