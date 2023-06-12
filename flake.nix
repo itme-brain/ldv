@@ -8,13 +8,14 @@
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem
     (system:
-    let
-      pkgs = import nixpkgs { inherit system; };
+      let
+        pkgs = import nixpkgs { inherit system; };
 
-    in with pkgs;
-    {
-      devShells.haskell = callPackage ./shells/haskell.nix { };
-      devShells.web = callPackage ./shells/web.nix { };
-      devShells.elixir = callPackage ./shells/elixir.nix { };
-  });
+      in with pkgs;
+        {
+          devShells.haskell = callPackage ./shells/haskell.nix { };
+          devShells.web = callPackage ./shells/web.nix { };
+          devShells.elixir = callPackage ./shells/elixir.nix { };
+        }
+    );
 }

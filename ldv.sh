@@ -29,6 +29,7 @@ Select an environment:
 1. Web
 2. Elixir
 3. Haskell
+4. Python
 EOF
   # Add more options here...
 
@@ -53,6 +54,10 @@ EOF
       wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/utils/envrc -O .envrc
       direnv allow
       ;;
+    4)
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/shells/python.nix -O shell.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/utils/flake -O flake.nix
+      wget -q https://raw.githubusercontent.com/itme-brain/ldv/main/utils/envrc -O .envrc
     # Add more cases here...
     *)
       echo "Invalid choice."
@@ -64,6 +69,7 @@ Select an environment:
 1. Web
 2. Elixir
 3. Haskell
+4. Python
 EOF
   # Add more options here...
 
@@ -79,6 +85,8 @@ EOF
     3)
       (nix develop github:itme-brain/ldv#haskell)
       ;;
+    4)
+      (nix develop github:itme-brain/ldv#python)
     # Add more cases here...
     *)
       echo "Invalid choice."
