@@ -10,5 +10,6 @@ mkShell {
     purescript
     spago
     nodePackages.vue-cli
+    nodePackages.purs-tidy
   ];
 }
