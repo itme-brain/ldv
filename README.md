@@ -40,7 +40,7 @@ ldv
 To initialize a new dev template in the current directory, use the `init` option:
 
 ```bash
-`ldv init
+ldv init
 ````
 Dev templates are a `flake.nix` + `.envrc` that enables you to automagically enter an isolated and reproducible build environment whenever you enter your projects directory.
 
