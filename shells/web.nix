@@ -10,6 +10,5 @@ mkShell {
     purescript
     spago
     nodePackages.purs-tidy
-    haskellPackages.zephyr
   ];
 }
