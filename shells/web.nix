@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}, prvs }:
 
 # Add more packages to this shell.
 # https://search.nixos.org/packages
@@ -9,7 +9,7 @@ mkShell {
     nodejs
     purescript
     spago
-    nodePackages.vue-cli
     nodePackages.purs-tidy
+    haskellPackages.zephyr
   ];
 }
