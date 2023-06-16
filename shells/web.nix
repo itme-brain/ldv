@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {}, prvs }:
+{ pkgs ? import <nixpkgs> {} }:
 
 # Add more packages to this shell.
 # https://search.nixos.org/packages
