@@ -9,8 +9,10 @@ mkShell {
     ghc
     cabal-install
     cabal2nix
+    stack
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.doctest
+    haskellPackages.haskell-debug-adapter
   ];
 }
