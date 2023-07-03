@@ -7,7 +7,7 @@ with pkgs;
 mkShell {
   nativeBuildInputs = [
     nodejs
-    vue-cli
+    nodePackages.vue-cli
   ];
   shellHook = ''
     if ! command -v nuxt &> /dev/null
