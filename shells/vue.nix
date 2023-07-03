@@ -14,7 +14,7 @@ mkShell {
       npx nuxi@latest init nuxt-app
       mv nuxt-app/* .
       rm -rf nuxt-app
-      npm i -D nuxt-vite
+      npm install --save-dev @nuxtjs/tailwindcss
       cat > nuxt.config.ts << EOF
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -22,8 +22,9 @@ export default defineNuxtConfig({
   typescript: {
     strict: true
   },
+// https://nuxt.com/modules
   modules: [
-    'nuxt-vite'
+    '@nuxtjs/tailwindcss'
   ],
   vite: {
     /* options for vite */
@@ -33,28 +34,12 @@ export default defineNuxtConfig({
       /* options for vite-plugin-vue2 */
     },
   }
+  tailwindcss: {
+      // Options
+  }
 })
 EOF
-      npm install typescript --save-dev
-      cat > tailwind.config.js << EOF
-module.exports = {
-  theme: {},
-  plugins: [],
-  content: [
-    "./components/**/*.{vue,js,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./composables/**/*.{js,ts}",
-    "./plugins/**/*.{js,ts}",
-    "./utils/**/*.{js,ts}",
-    "./App.{js,ts,vue}",
-    "./app.{js,ts,vue}",
-    "./Error.{js,ts,vue}",
-    "./error.{js,ts,vue}",
-    "./app.config.{js,ts}"
-  ]
-}
-EOF
+      git init
     fi
   '';
 }
