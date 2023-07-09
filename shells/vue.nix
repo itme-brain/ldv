@@ -36,6 +36,12 @@ EOF
   "allowJS": "true"
 }
 EOF
+      cat > .gitignore << EOF
+.nuxt/
+.output/
+dist
+.direnv
+EOF
       npm install
       git init
     fi
