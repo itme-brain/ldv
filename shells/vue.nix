@@ -33,7 +33,7 @@ EOF
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
-  "allowJS": "true"
+  "allowJs": "true"
 }
 EOF
       cat > .gitignore << EOF
