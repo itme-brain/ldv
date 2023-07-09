@@ -16,6 +16,7 @@ mkShell {
       rm -rf nuxt-app
       npm install --save-dev typescript
       npm install --save-dev @nuxtjs/tailwindcss
+
       cat > nuxt.config.ts << EOF
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -29,6 +30,7 @@ export default defineNuxtConfig({
   ],
 })
 EOF
+
       cat > tsconfig.json << EOF
 {
   // https://nuxt.com/docs/guide/concepts/typescript
@@ -36,13 +38,19 @@ EOF
   "allowJs": "true"
 }
 EOF
+
       cat > .gitignore << EOF
 .nuxt/
 .output/
 dist
 .direnv
 EOF
+
+      mkdir pages/
+      mkdir components/
+      mkdir assets/
       npm install
+      rm -rf app.vue
       git init
     fi
   '';
