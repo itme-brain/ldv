@@ -29,6 +29,13 @@ export default defineNuxtConfig({
   ],
 })
 EOF
+      cat > tsconfig.json << EOF
+{
+  // https://nuxt.com/docs/guide/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
+  "allowJS": "true"
+}
+EOF
       npm install
       git init
     fi
