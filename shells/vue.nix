@@ -13,7 +13,7 @@ mkShell {
     if [ ! -f nuxt.config.ts ]; then
       npx nuxi@latest init nuxt-app
       mv nuxt-app/* .
-      rm -rf nuxt-app
+      rm nuxt-app
       npm install --save-dev typescript
       npm install --save-dev @nuxtjs/tailwindcss
 
@@ -28,6 +28,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss'
   ],
+  css: [
+    './assets/css/main.css'
+  ],
 })
 EOF
 
@@ -38,19 +41,21 @@ EOF
   "allowJs": "true"
 }
 EOF
-
-      cat > .gitignore << EOF
-.nuxt/
-.output/
-dist
-.direnv
-EOF
-
       mkdir pages/
       mkdir components/
       mkdir assets/
+      mkdir assets/css
+
+      cat > assets/css/main.css << EOF
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Import more css files here */
+EOF
+
       npm install
-      rm -rf app.vue
+      rm app.vue
       git init
     fi
   '';
