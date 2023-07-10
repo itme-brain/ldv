@@ -33,14 +33,6 @@ export default defineNuxtConfig({
   ],
 })
 EOF
-
-      cat > tsconfig.json << EOF
-{
-  // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json",
-  "allowJs": "true"
-}
-EOF
       mkdir pages/
       mkdir components/
       mkdir assets/
