@@ -28,25 +28,12 @@ export default defineNuxtConfig({
 // https://nuxt.com/modules
   modules: [
     '@nuxtjs/tailwindcss'
-  ],
-  css: [
-    '~/assets/css/main.css'
-  ],
+  ]
 })
 EOF
       mkdir pages/
       mkdir components/
       mkdir assets/
-      mkdir assets/css
-
-      cat > assets/css/main.css << EOF
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-/* Import more css files here */
-EOF
-
       cat > tailwind.config.js << EOF
 /** @type {import('tailwindcss').Config} */
 export const content = [
