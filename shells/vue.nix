@@ -16,6 +16,7 @@ mkShell {
       rm nuxt-app
       npm install --save-dev typescript
       npm install --save-dev @nuxtjs/tailwindcss
+      npm install --save-dev @tailwindcss/language-server
 
       cat > nuxt.config.ts << EOF
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -44,6 +45,21 @@ EOF
 @import 'tailwindcss/utilities';
 
 /* Import more css files here */
+EOF
+
+      cat > tailwind.config.js << EOF
+/** @type {import('tailwindcss').Config} */
+export const content = [
+  "./components/**/*.vue",
+  "./layouts/**/*.vue",
+  "./pages/**/*.vue",
+  "./plugins/**/*.js",
+  "./nuxt.config.js",
+];
+export const theme = {
+  extend: {},
+};
+export const plugins = [];
 EOF
 
       npm install
