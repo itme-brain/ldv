@@ -13,7 +13,8 @@ mkShell {
     if [ ! -f nuxt.config.ts ]; then
       npx nuxi@latest init nuxt-app
       mv nuxt-app/* .
-      rm nuxt-app
+      mv nuxt-app/.* .
+      rm -rf nuxt-app
       npm install --save-dev typescript
       npm install --save-dev @nuxtjs/tailwindcss
       npm install --save-dev @tailwindcss/language-server
