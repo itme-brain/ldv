@@ -1,5 +1,5 @@
 # ldv
-**Disclaimer: This is a hobby devops project and mainly just a repo of setups I like to use.**
+**Disclaimer: This is a hobby project and mainly just a repo of setups I like to use.**
 
 `ldv` is a simple bash script utility for creating preconfigured developer environments powered by Nix. 
 
